@@ -1,0 +1,17 @@
+<!-- <div *ngFor="let p of products">
+    <div class="box">
+        <div>{{p.name}}</div>
+        <div>Price: <b>{{p.price}}</b></div>
+        <div>Stock:<b>{{p.stock}}</b></div>
+        <div><img [src]="image_api+p.imageName"/></div>
+        <div><img src="{{image_api+p.imageName}}"/></div>
+    </div>
+</div> -->
+
+<div class=container *ngFor="let p of products">
+    
+       <app-product [name]="p.name" [price]="p.price" [stock]="p.stock" [image]="image_api+p.imageName"></app-product>   
+    
+</div>
+
+

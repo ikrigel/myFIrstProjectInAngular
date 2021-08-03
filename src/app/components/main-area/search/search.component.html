@@ -1,0 +1,12 @@
+<div class="box">
+
+    <label>Search: </label>
+    <input type="text" [(ngModel)]="textToSearch" />
+    <span [style]>{{textToSearch}}</span>
+    <span (click)="handleClick($event)" [style]="spanStyle">Click Me</span>
+    <button (click)="handleClick($event)">Click Me</button>
+    <input type="text" [(ngModel)]="george"/>
+    <span (click)="handleClick($event)" [style]="spanStyle">{{george}}</span>
+    <button (click)="handleClick($event)">Click Me</button>
+    {{ test }}
+</div>

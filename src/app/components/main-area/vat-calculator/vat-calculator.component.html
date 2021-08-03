@@ -1,0 +1,6 @@
+<div class="box">
+    <span> VAT: {{moService.getVat(this.price)}}</span>
+    <input type ="number"[(ngModel)]="price"/>
+    
+    <span> Price WO VAT: {{moService.getPrice(this.price)}}</span>
+</div>
