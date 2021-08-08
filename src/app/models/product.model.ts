@@ -1,13 +1,18 @@
-class ProductModel{
-    public id:number;
+class ProductModel {
+
+    public id: number;
     public name: string;
-    public stock: number;
     public price: number;
-    public imageName:string;
-    // "id": 1, - we imitate the data type from the JSON
+    public stock: number;
+    public imageName: string;//For GET operations, received from REST API as JSON
+    public images: FileList;///For POST operations, sent to REST API as JSON
+
+    // "id": 1,
     // "name": "Chai",
     // "price": 18,
     // "stock": 39,
     // "imageName": "1.jpg"
+
 }
-    export default ProductModel;
+
+export default ProductModel;

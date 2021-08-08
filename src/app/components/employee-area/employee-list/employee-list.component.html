@@ -1,0 +1,22 @@
+<div>
+    <div style="text-align: left; width: 100%">
+        <a routerLink="/employees/new">Add new employee</a>
+    </div>  
+
+<div *ngFor="let e of employees" style="display:inline-flex;">
+    <div class="box">
+        <div>First Name:<b>{{ e.firstName }}</b></div>
+        <div>Last Name: <b>{{ e.lastName }}</b></div>
+        <div>Title: <b>{{ e.title }}</b></div>
+        <div>Country:<b>{{ e.country }}</b></div>
+        <div>City: <b>{{ e.city }}</b></div>
+        <div>Birthdate: <b>{{ e.birthDate }}</b></div>
+        
+
+        <div>
+            <a [routerLink]="'/employees/' + e.id">
+                <img [src]="image_api + e.imageName"/>
+            </a>
+        </div>
+    </div>
+</div>

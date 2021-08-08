@@ -18,11 +18,4 @@ export class SpecialsComponent implements OnInit {
     return dayOfWeek >= 6;
   }
 
-  public isMonthStart(): boolean {
-    const now = new Date();
-    const dayOfMonth = now.getDate();
-    return dayOfMonth === 1;
-  }
-  
-
 }

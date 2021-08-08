@@ -7,13 +7,14 @@ export class ArrayService {
 
   constructor() { }
 
-  public getSum(numbers: number[]): number{
-    let sum=0;
+  getSum(numbers: number[]): number {
+    
+    let sum = 0;
 
-    for (let num of numbers){
-      sum+=num;
+    for (let num of numbers) {
+      sum += num;
     }
+
     return sum;
   }
 }
-

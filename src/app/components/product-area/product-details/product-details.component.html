@@ -1,0 +1,18 @@
+<div *ngIf="product">
+    <div>
+        {{product.name}}
+        <br />
+        Price: {{product.price}}
+        <br />
+        Stock: {{product.stock}}
+    </div>
+    <div>
+        <img [src]="image_api + product.imageName" />
+    </div>
+    <div><button (click)="delete()">Delete Product</button>
+    </div>
+    
+    <div>
+        <a routerLink="/products">Go back to product list</a>
+    </div>
+</div>

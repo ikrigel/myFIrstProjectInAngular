@@ -6,13 +6,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./recommended.component.css']
 })
 export class RecommendedComponent implements OnInit {
-  product_name:string="Adidas";
+
+  product_name: string = "Adidas";
+
   constructor() { }
 
   ngOnInit(): void {
   }
-  recommend(args: MouseEvent){
+
+  recommend(args: MouseEvent) {
     console.log(args);
+
     console.log(this.product_name);
   }
 

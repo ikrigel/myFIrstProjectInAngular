@@ -6,7 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./slogan.component.css']
 })
 export class SloganComponent implements OnInit {
-  slogan:string="My slogan";
+
+  // Binding example
+  slogan: string = "This is my slogan";
+
   constructor() { }
 
   ngOnInit(): void {

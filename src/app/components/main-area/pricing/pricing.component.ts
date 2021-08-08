@@ -6,7 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./pricing.component.css']
 })
 export class PricingComponent implements OnInit {
-price: number=70;
+
+  price: number = 70;
+
   constructor() { }
 
   ngOnInit(): void {

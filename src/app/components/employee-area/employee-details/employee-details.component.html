@@ -1,0 +1,17 @@
+<div *ngIf="employee">
+  <div>
+    {{ employee.firstName }} {{ employee.lastName }}
+    <br />
+    Title: {{ employee.title }}
+    <br />
+    Residance: {{ employee.country }}, {{ employee.city }}
+    <br />
+    Birthdate:{{ employee.birthDate }}
+  </div>
+  <div>
+    <img [src]="image_api + employee.imageName" />
+  </div>
+  <div>
+    <a routerLink="/employees">Go back to employee list</a>
+  </div>
+</div>

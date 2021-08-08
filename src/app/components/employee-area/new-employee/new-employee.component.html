@@ -1,0 +1,42 @@
+<div class="box">
+    <form #myForm="ngForm" (submit)="submit()">
+
+        <label>First Name:</label>
+        <input #firstName_field="ngModel" type="text" [(ngModel)]="employee.firstName" name="firstName" required pattern="^[A-Z].*$"/>
+        <span *ngIf="firstName_field.errors?.required && firstName_field.touched">first Name is required</span>
+        <span *ngIf="firstName_field.errors?.pattern && firstName_field.touched">first Name requires first capital letter</span>
+        <br/>
+        <label>Last Name:</label>
+        <input #lastName_field="ngModel" type="text" [(ngModel)]="employee.lastName" name="lastName" required pattern="^[A-Z].*$"/>
+        <span *ngIf="lastName_field.errors?.required && lastName_field.touched">Last Name is required</span>
+        <span *ngIf="lastName_field.errors?.pattern && lastName_field.touched">Last Name requires first capital letter</span>
+        <br/>
+        <label>title:</label>
+        <input #title_field="ngModel" type="text" [(ngModel)]="employee.title" name="title" required pattern="^[A-Z].*$"/>
+        <span *ngIf="title_field.errors?.required && title_field.touched">Title is required</span>
+        <span *ngIf="title_field.errors?.pattern && title_field.touched">Title requires first capital letter</span>
+        <br/>
+        <label>Country:</label>
+        <input #country_field="ngModel" type="text" [(ngModel)]="employee.country" name="country" required pattern="^[A-Z].*$"/>
+        <span *ngIf="country_field.errors?.required && country_field.touched">Country is required</span>
+        <span *ngIf="country_field.errors?.pattern && country_field.touched">Country requires first capital letter</span>
+        <br/>
+        <label>City:</label>
+        <input #city_field="ngModel" type="text" [(ngModel)]="employee.city" name="city" required pattern="^[A-Z].*$"/>
+        <span *ngIf="city_field.errors?.required && city_field.touched">City  is required</span>
+        <span *ngIf="city_field.errors?.pattern && city_field.touched">City requires first capital letter</span>
+        <br/>
+        <label>Birthdate:</label>
+        <label>Birth Date:</label>
+        <input #birthDate_field="ngModel" type="text" [(ngModel)]="employee.birthDate" name="birthDate" required pattern="^\d{4}\-(0?[1-9]|1[012])\-(0?[1-9]|[12][0-9]|3[01])$"/>
+        <span *ngIf="birthDate_field.errors?.required && birthDate_field.touched">Birth date is required</span>
+        <span *ngIf="birthDate_field.errors?.pattern && birthDate_field.touched">Birth date format must be YYYY-MM-DD</span>
+        <br/>
+        <label>Image:</label>
+        <input type="file" accept="image/*" (change)="saveImage($event)" (blur)="loseFocus()" />
+        <span *ngIf="imageVisited && !employee.images">Image is required</span>
+        <br/>
+        <button [disabled]="myForm.form.invalid">Submit</button>
+
+    </form>
+</div>

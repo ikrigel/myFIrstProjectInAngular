@@ -6,7 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./desserts.component.css']
 })
 export class DessertsComponent implements OnInit {
-  desserts:string[]=["Pavlova","Choclate Cake","Ice Scream","Cheese Cake","Tramisu"]
+
+  desserts: string[] = ["Pavlova", "Chocolate Cake", "Cheese Cake", "Tiramisu"];
+
   constructor() { }
 
   ngOnInit(): void {

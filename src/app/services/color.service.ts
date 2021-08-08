@@ -7,10 +7,7 @@ export class ColorService {
 
   constructor() { }
 
-  public getColor(): string{
-       
-    return 'rgb(' + Math.floor(Math.random() * 255) + "," + Math.floor(Math.random() * 255) + "," + Math.floor(Math.random() * 255)+ ')';
+  getColor(): string {
+    return "black";
   }
-  
-
 }
