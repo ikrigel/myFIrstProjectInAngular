@@ -32,6 +32,7 @@ this.product=await this.http.get<ProductModel>(this.product_api + product_id).to
 }
   }
   async delete() {
+    if(window.confirm('Are sure you want to delete this item ?')){
     try {
       // 1. Extract 'id' from URL
       const product_id = this.myActivatedRouter.snapshot.params.id;
@@ -43,5 +44,6 @@ this.product=await this.http.get<ProductModel>(this.product_api + product_id).to
     } catch(err) {
       console.log(err);
     }
+  }
   }
 }

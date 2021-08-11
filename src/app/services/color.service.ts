@@ -10,4 +10,10 @@ export class ColorService {
   getColor(): string {
     return "black";
   }
+
+  public getRandomColor(): string{
+       
+    return 'rgb(' + Math.floor(Math.random() * 255) + "," + Math.floor(Math.random() * 255) + "," + Math.floor(Math.random() * 255)+ ')';
+  }
+  
 }

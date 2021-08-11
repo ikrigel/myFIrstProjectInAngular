@@ -31,7 +31,7 @@ export class NewProductComponent implements OnInit {
     try{
     //1. Conver 'product' object to FormData object (to be able to make a POST call)
     const myFormData=new FormData();
-    debugger;
+    //debugger;
     myFormData.append("name",this.product.name);
     myFormData.append("price",this.product.price.toString());
     myFormData.append("stock",this.product.stock.toString());

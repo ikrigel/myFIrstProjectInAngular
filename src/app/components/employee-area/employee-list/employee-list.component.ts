@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import EmployeeModel from 'src/app/models/employee.model';
-import ProductModel from 'src/app/models/product.model';
+
 
 @Component({
   selector: 'app-employee-list',

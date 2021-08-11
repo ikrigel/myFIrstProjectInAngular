@@ -28,12 +28,12 @@
         <br/>
         <label>Birthdate:</label>
         <label>Birth Date:</label>
-        <input #birthDate_field="ngModel" type="text" [(ngModel)]="employee.birthDate" name="birthDate" required pattern="^\d{4}\-(0?[1-9]|1[012])\-(0?[1-9]|[12][0-9]|3[01])$"/>
+        <input #birthDate_field="ngModel" type="text" [(ngModel)]="employee.birthDate" name="birthDate" required pattern="^[0-9]{2}[/][0-9]{2}[/][0-9]{4}$"/>
         <span *ngIf="birthDate_field.errors?.required && birthDate_field.touched">Birth date is required</span>
-        <span *ngIf="birthDate_field.errors?.pattern && birthDate_field.touched">Birth date format must be YYYY-MM-DD</span>
+        <span *ngIf="birthDate_field.errors?.pattern && birthDate_field.touched">Birth date format must be DD/MM/YYYY</span>
         <br/>
         <label>Image:</label>
-        <input type="file" accept="image/*" (change)="saveImage($event)" (blur)="loseFocus()" />
+        <input type="file" accept="image/*" (change)="saveImage($event)" (blur)="loseFocus()" required/>
         <span *ngIf="imageVisited && !employee.images">Image is required</span>
         <br/>
         <button [disabled]="myForm.form.invalid">Submit</button>

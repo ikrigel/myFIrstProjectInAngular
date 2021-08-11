@@ -1,1 +1,52 @@
-<p>edit-employee works!</p>
+<div class="box">
+    <form [formGroup]="formControl" (submit)="update()">
+
+        <label>First Name:</label>
+        <input [formControl]="firstNameControl" type="text">
+        <span *ngIf="firstNameControl.errors?.required && firstNameControl.touched">first Name is required</span>
+        <span *ngIf="firstNameControl.errors?.pattern && firstNameControl.touched">first Name requires first capital letter</span>
+        <br/>
+        <label>Last Name:</label>
+        <input [formControl]="lastNameControl" type="text">
+        <span *ngIf="lastNameControl.errors?.required && lastNameControl.touched">Last Name is required</span>
+        <span *ngIf="lastNameControl.errors?.pattern && lastNameControl.touched">Last Name requires first capital letter</span>
+        <br/>
+        <label>Title:</label>
+        <input [formControl]="titleControl" type="text">
+        <span *ngIf="titleControl.errors?.required && titleControl.touched">Title is required</span>
+        <span *ngIf="titleControl.errors?.pattern && titleControl.touched">Title requires first capital letter</span>
+        <br/>
+        <label>Country:</label>
+        <input [formControl]="countryControl" type="text">
+        <span *ngIf="countryControl.errors?.required && countryControl.touched">Country is required</span>
+        <span *ngIf="countryControl.errors?.pattern && countryControl.touched">Country requires first capital letter</span>
+        <br/>
+        <label>City:</label>
+        <input [formControl]="cityControl" type="text">
+        <span *ngIf="cityControl.errors?.required && cityControl.touched">City is required</span>
+        <span *ngIf="cityControl.errors?.pattern && cityControl.touched">City requires first capital letter</span>
+        <br/>
+        <label>Birthdat:</label>
+        <input [formControl]="birthDateControl" type="text">
+        <span *ngIf="birthDateControl.errors?.required && birthDateControl.touched">Birthdate is required</span>
+        <span *ngIf="birthDateControl.errors?.pattern && birthDateControl.touched">Birthdate requires first capital letter</span>
+        <br/>
+        <label>Image:</label>
+        <input type="file" accept="image/*" (change)="saveImage($event)" (blur)="loseFocus()" required/>
+        <span *ngIf="imageVisited && !employee.images">Image is required</span>
+        <br/>
+        <button [disabled]="formControl.invalid">Submit</button>
+
+    </form>
+</div>
+<div>
+<br />
+  <div>
+    <br />
+    <a routerLink="/employees">Go back to employee list</a>
+  </div>
+   <br />
+  <div>
+    <a routerLink="/employees/{{ employee.id }}">Go back to employee details</a>
+  </div>
+</div>

@@ -15,7 +15,7 @@ import { SalesComponent } from './components/main-area/sales/sales.component';
 import { SloganComponent } from './components/main-area/slogan/slogan.component';
 import { RecommendedComponent } from './components/main-area/recommended/recommended.component';
 import { SearchComponent } from './components/main-area/search/search.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PricingComponent } from './components/main-area/pricing/pricing.component';
 import { ClockComponent } from './components/main-area/clock/clock.component';
 import { InventoryComponent } from './components/main-area/inventory/inventory.component';
@@ -28,6 +28,7 @@ import { EmployeeListComponent } from './components/employee-area/employee-list/
 import { NewEmployeeComponent } from './components/employee-area/new-employee/new-employee.component';
 import { EmployeeDetailsComponent } from './components/employee-area/employee-details/employee-details.component';
 import { EditEmployeeComponent } from './components/employee-area/edit-employee/edit-employee.component';
+import { VatCalculatorComponent } from './components/main-area/components/main-area/vat-calculator/vat-calculator.component';
 
 @NgModule({
   declarations: [
@@ -54,13 +55,15 @@ import { EditEmployeeComponent } from './components/employee-area/edit-employee/
     EmployeeListComponent,
     NewEmployeeComponent,
     EmployeeDetailsComponent,
-    EditEmployeeComponent
+    EditEmployeeComponent,
+    VatCalculatorComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [LayoutComponent]

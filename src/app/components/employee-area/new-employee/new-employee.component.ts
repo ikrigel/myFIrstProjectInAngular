@@ -30,19 +30,19 @@ export class NewEmployeeComponent implements OnInit {
       //1. Conver 'employee' object to FormData object (to be able to make a POST call)
       const myFormData = new FormData();
       debugger;
-      myFormData.append("First Name", this.employee.firstName);
-      myFormData.append("Last Name", this.employee.lastName);
-      myFormData.append("Title", this.employee.title);
-      myFormData.append("Country", this.employee.country);
-      myFormData.append("City", this.employee.city);
-      myFormData.append("Birthdate", this.employee.birthDate);
+      myFormData.append("firstName", this.employee.firstName);
+      myFormData.append("lastName", this.employee.lastName);
+      myFormData.append("title", this.employee.title);
+      myFormData.append("country", this.employee.country);
+      myFormData.append("city", this.employee.city);
+      myFormData.append("birthDate", this.employee.birthDate);
       myFormData.append("image", this.employee.images.item(0));//product.images[0]
       //2. Make POST with FormDat and check new product was created in the API
       const addedEmployee = await this.http.post<EmployeeModel>(this.employee_api, myFormData).toPromise();
 
       console.log('x');
       //3. Redirect to '/employee' page or the product details of the new product (products/:id)
-      //this.router.navigateByUrl("/employee");
+      //this.router.navigateByUrl("/employees");
       this.router.navigateByUrl(`/employees/${addedEmployee.id}`);
     } catch (err) {
       console.log(err);

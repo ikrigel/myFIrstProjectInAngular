@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import EmployeeModel from 'src/app/models/employee.model';
-import ProductModel from 'src/app/models/product.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-employee-details',
@@ -19,7 +19,7 @@ export class EmployeeDetailsComponent implements OnInit {
   public image_api: string = "http://localhost:3030/api/employees/images/";
   private employee_api: string = "http://localhost:3030/api/employees/";
 
-  constructor(private myActivatedRouter: ActivatedRoute, private http: HttpClient) { }
+  constructor(private myActivatedRouter: ActivatedRoute, private http: HttpClient, private router: Router) { }
 
   async ngOnInit() {
 
@@ -33,7 +33,21 @@ export class EmployeeDetailsComponent implements OnInit {
       console.log(err);
     }
   }
+  async delete() {
+    if (window.confirm('Are sure you want to delete this employee ?')) {
+      try {
+        // 1. Extract 'id' from URL
+        const employee_id = this.myActivatedRouter.snapshot.params.id;
+        //delete request
+        this.employee = await this.http.delete<EmployeeModel>(this.employee_api + employee_id).toPromise();
+        //redirect to productlist
+        this.router.navigateByUrl(`/employees`);
 
+      } catch (err) {
+        console.log(err);
+      }
+    }
+  }
 
 
 

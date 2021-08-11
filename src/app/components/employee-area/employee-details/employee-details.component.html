@@ -12,6 +12,15 @@
     <img [src]="image_api + employee.imageName" />
   </div>
   <div>
+    <button (click)="delete()">Delete Employee</button>
+  </div>
+  <br />
+  <div>
+    <br />
     <a routerLink="/employees">Go back to employee list</a>
+  </div>
+   <br />
+  <div>
+    <a routerLink="/employees/{{ employee.id }}/edit">Edit employee</a>
   </div>
 </div>
