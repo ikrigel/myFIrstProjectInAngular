@@ -12,7 +12,7 @@ export class LayoutComponent implements OnInit {
 
   ngOnInit(): void {
     console.log('Y');
-    debugger;
+    //debugger;
   }
 
 }

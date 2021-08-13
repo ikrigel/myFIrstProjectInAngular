@@ -29,6 +29,21 @@ import { NewEmployeeComponent } from './components/employee-area/new-employee/ne
 import { EmployeeDetailsComponent } from './components/employee-area/employee-details/employee-details.component';
 import { EditEmployeeComponent } from './components/employee-area/edit-employee/edit-employee.component';
 import { VatCalculatorComponent } from './components/main-area/components/main-area/vat-calculator/vat-calculator.component';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AdminComponent } from './components/admin-area/admin/admin.component';
+import { AuthMenuComponent } from './components/auth-area/auth-menu/auth-menu.component';
+import { LoginComponent } from './components/auth-area/login/login.component';
+import { LogoutComponent } from './components/auth-area/logout/logout.component';
+import { RegisterComponent } from './components/auth-area/register/register.component';
+import { ContactUsComponent } from './components/contact-us-area/contact-us/contact-us.component';
+import { ObservableTesterComponent } from './components/about-area/observable-tester/observable-tester.component';
+import { MatFormFieldModule } from "@angular/material/form-field";
+import { MatInputModule } from "@angular/material/input";
+import { MatButtonModule } from "@angular/material/button";
+import { MatIconModule } from "@angular/material/icon";
+import { Page404Component } from './components/layout-area/page404/page404.component';
+
 
 @NgModule({
   declarations: [
@@ -56,14 +71,28 @@ import { VatCalculatorComponent } from './components/main-area/components/main-a
     NewEmployeeComponent,
     EmployeeDetailsComponent,
     EditEmployeeComponent,
-    VatCalculatorComponent
+    VatCalculatorComponent,
+    AdminComponent,
+    AuthMenuComponent,
+    LoginComponent,
+    LogoutComponent,
+    RegisterComponent,
+    ContactUsComponent,
+    ObservableTesterComponent,
+    Page404Component,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatDatepickerModule,
+    BrowserAnimationsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatButtonModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [LayoutComponent]

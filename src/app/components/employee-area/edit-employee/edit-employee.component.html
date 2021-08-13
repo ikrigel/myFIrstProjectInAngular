@@ -29,7 +29,7 @@
         <label>Birthdat:</label>
         <input [formControl]="birthDateControl" type="text">
         <span *ngIf="birthDateControl.errors?.required && birthDateControl.touched">Birthdate is required</span>
-        <span *ngIf="birthDateControl.errors?.pattern && birthDateControl.touched">Birthdate requires first capital letter</span>
+        <span *ngIf="birthDateControl.errors?.pattern && birthDateControl.touched">Date format required is DD-MM-YYYY</span>
         <br/>
         <label>Image:</label>
         <input type="file" accept="image/*" (change)="saveImage($event)" (blur)="loseFocus()" required/>
@@ -47,6 +47,9 @@
   </div>
    <br />
   <div>
+    <a [routerLink]="'/employees/ + employee.id'">Back to employee details</a>
+    <br/>
+    <br/>
     <a routerLink="/employees/{{ employee.id }}">Go back to employee details</a>
   </div>
 </div>

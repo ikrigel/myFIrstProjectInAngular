@@ -13,6 +13,14 @@ class ProductModel {
     // "stock": 39,
     // "imageName": "1.jpg"
 
+    public static convertToFormData(product: ProductModel): FormData {
+        const myFormData = new FormData();
+        myFormData.append("name", product.name);
+        myFormData.append("price", product.price.toString());
+        myFormData.append("stock", product.stock.toString());
+        if(product.images) myFormData.append("image", product.images.item(0));
+        return myFormData;
+    }
 }
 
 export default ProductModel;

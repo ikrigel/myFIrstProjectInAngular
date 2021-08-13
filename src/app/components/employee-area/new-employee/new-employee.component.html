@@ -27,16 +27,27 @@
         <span *ngIf="city_field.errors?.pattern && city_field.touched">City requires first capital letter</span>
         <br/>
         <label>Birthdate:</label>
-        <label>Birth Date:</label>
         <input #birthDate_field="ngModel" type="text" [(ngModel)]="employee.birthDate" name="birthDate" required pattern="^[0-9]{2}[/][0-9]{2}[/][0-9]{4}$"/>
         <span *ngIf="birthDate_field.errors?.required && birthDate_field.touched">Birth date is required</span>
         <span *ngIf="birthDate_field.errors?.pattern && birthDate_field.touched">Birth date format must be DD/MM/YYYY</span>
+        <br/>
+        
         <br/>
         <label>Image:</label>
         <input type="file" accept="image/*" (change)="saveImage($event)" (blur)="loseFocus()" required/>
         <span *ngIf="imageVisited && !employee.images">Image is required</span>
         <br/>
+        <br/>
         <button [disabled]="myForm.form.invalid">Submit</button>
 
     </form>
+    <div style="text-align: left; width: 100%">
+        <a routerLink="/employees/new">Add new employee</a>
+   
+     <br/>
+    <br/>
+        <a [routerLink]="'/employees/'">Back to employees</a>
+            <!-- <img [src]="image_api + e.imageName"/> -->
+       
+    </div> 
 </div>

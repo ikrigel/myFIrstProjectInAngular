@@ -18,7 +18,18 @@ class EmployeeModel {
     // "city": "Seattle",
     // "birthDate": "1948-12-08",
     // "imageName": "1.jpg"
-
+    public static convertToFormData(employee: EmployeeModel): FormData {
+        const myFormData = new FormData();
+        myFormData.append("firstName", employee.firstName);
+        myFormData.append("lastName", employee.lastName);
+        myFormData.append("title", employee.title);
+        myFormData.append("country", employee.country);
+        myFormData.append("city", employee.city);
+        myFormData.append("birthDate", employee.birthDate);
+        if(employee.images) myFormData.append("image", employee.images.item(0));
+        return myFormData;
+    }
+    
 }
 
 export default EmployeeModel;

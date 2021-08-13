@@ -1,7 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import EmployeeModel from 'src/app/models/employee.model';
+import EmployeeModel from 'src/app/models/employees.model';
+
 
 @Component({
   selector: 'app-new-employee',

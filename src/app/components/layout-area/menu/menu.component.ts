@@ -1,15 +1,25 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Unsubscribe } from 'redux';
+import store from 'src/app/redux/store';
 
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.component.html',
   styleUrls: ['./menu.component.css']
 })
-export class MenuComponent implements OnInit {
+export class MenuComponent implements OnInit, OnDestroy {
 
-  constructor() { }
+    public isAdmin: boolean;
+    private unsubscribeMe: Unsubscribe;
 
-  ngOnInit(): void {
-  }
+    ngOnInit(): void {
+        this.unsubscribeMe = store.subscribe(() => {
+            this.isAdmin = store.getState().authState.user?.isAdmin;
+        });
+    }
+
+    ngOnDestroy(): void {
+        this.unsubscribeMe();
+    }
 
 }

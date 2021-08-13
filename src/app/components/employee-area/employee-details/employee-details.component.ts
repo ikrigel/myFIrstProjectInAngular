@@ -1,8 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import EmployeeModel from 'src/app/models/employee.model';
+import EmployeeModel from 'src/app/models/employees.model';
 import { Router } from '@angular/router';
+import { EmployeesService } from 'src/app/services/employees.service';
 
 @Component({
   selector: 'app-employee-details',
@@ -19,15 +20,18 @@ export class EmployeeDetailsComponent implements OnInit {
   public image_api: string = "http://localhost:3030/api/employees/images/";
   private employee_api: string = "http://localhost:3030/api/employees/";
 
-  constructor(private myActivatedRouter: ActivatedRoute, private http: HttpClient, private router: Router) { }
+  public employee_id = +this.myActivatedRouter.snapshot.params.id;
+ 
+
+
+  constructor(private myEmployeesService: EmployeesService, private myActivatedRouter: ActivatedRoute, private http: HttpClient, private router: Router) { }
 
   async ngOnInit() {
 
     try {
       //1.Extract 'id' from URL
-      const employee_id = this.myActivatedRouter.snapshot.params.id;
-      //2. Make REST PIA
-      this.employee = await this.http.get<EmployeeModel>(this.employee_api + employee_id).toPromise();
+      //2. Make REST API
+      this.employee = await this.myEmployeesService.getOneEmployee(this.employee_id);
       //3. Asssign retrieved product to the 'product' object i this class
     } catch (err) {
       console.log(err);
@@ -37,9 +41,9 @@ export class EmployeeDetailsComponent implements OnInit {
     if (window.confirm('Are sure you want to delete this employee ?')) {
       try {
         // 1. Extract 'id' from URL
-        const employee_id = this.myActivatedRouter.snapshot.params.id;
+        
         //delete request
-        this.employee = await this.http.delete<EmployeeModel>(this.employee_api + employee_id).toPromise();
+        await this.myEmployeesService.deleteEmployee(this.employee_id);
         //redirect to productlist
         this.router.navigateByUrl(`/employees`);
 
