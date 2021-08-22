@@ -19,7 +19,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PricingComponent } from './components/main-area/pricing/pricing.component';
 import { ClockComponent } from './components/main-area/clock/clock.component';
 import { InventoryComponent } from './components/main-area/inventory/inventory.component';
-import { HttpClientModule } from "@angular/common/http";
+import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { ProductListComponent } from './components/product-area/product-list/product-list.component';
 import { ProductDetailsComponent } from './components/product-area/product-details/product-details.component';
 import { NewProductComponent } from './components/product-area/new-product/new-product.component';
@@ -43,6 +43,9 @@ import { MatInputModule } from "@angular/material/input";
 import { MatButtonModule } from "@angular/material/button";
 import { MatIconModule } from "@angular/material/icon";
 import { Page404Component } from './components/layout-area/page404/page404.component';
+import { AboutComponent } from './components/about-area/about/about.component';
+import { CutegoriesListComponent } from './components/cutegories-area/cutegories-list/cutegories-list.component';
+import { JwtInterceptor } from './services/jwt.interceptor';
 
 
 @NgModule({
@@ -80,6 +83,8 @@ import { Page404Component } from './components/layout-area/page404/page404.compo
     ContactUsComponent,
     ObservableTesterComponent,
     Page404Component,
+    AboutComponent,
+    CutegoriesListComponent
   ],
   imports: [
     BrowserModule,
@@ -92,9 +97,14 @@ import { Page404Component } from './components/layout-area/page404/page404.compo
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
-    MatIconModule
+    MatIconModule,
+    
   ],
-  providers: [],
+  providers: [{ 
+    provide: HTTP_INTERCEPTORS, // Register the interceptor
+    useClass: JwtInterceptor, // Our interceptor class
+    multi: true // Can register it several times if needed
+}],
   bootstrap: [LayoutComponent]
 })
 export class AppModule { }

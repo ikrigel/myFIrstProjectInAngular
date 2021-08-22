@@ -6,6 +6,7 @@ import { LoginComponent } from './components/auth-area/login/login.component';
 import { LogoutComponent } from './components/auth-area/logout/logout.component';
 import { RegisterComponent } from './components/auth-area/register/register.component';
 import { ContactUsComponent } from './components/contact-us-area/contact-us/contact-us.component';
+import { CutegoriesListComponent } from './components/cutegories-area/cutegories-list/cutegories-list.component';
 import { EditEmployeeComponent } from './components/employee-area/edit-employee/edit-employee.component';
 import { EmployeeDetailsComponent } from './components/employee-area/employee-details/employee-details.component';
 import { EmployeeListComponent } from './components/employee-area/employee-list/employee-list.component';
@@ -18,6 +19,7 @@ import { NewProductComponent } from './components/product-area/new-product/new-p
 import { ProductDetailsComponent } from './components/product-area/product-details/product-details.component';
 import { ProductListComponent } from './components/product-area/product-list/product-list.component';
 import { AdminGuard } from './services/admin.guard';
+import { AuthGuard } from './services/auth.guard';
 
 const routes: Routes = [
   { path: "", component: MainComponent },
@@ -33,7 +35,8 @@ const routes: Routes = [
   { path: "employees/new", component: NewEmployeeComponent},
   { path: "employees/:id", component: EmployeeDetailsComponent},
   { path: "employees/:id/edit", component: EditEmployeeComponent},
-  { path: "employees", canActivate: [AdminGuard], component: EmployeeListComponent },
+  { path: "employees",canActivate: [AuthGuard], component: EmployeeListComponent },
+  { path: "cutegories",canActivate: [AuthGuard], component: CutegoriesListComponent },
   { path: "about", component: AboutComponent },
   { path: "contact-us", component: ContactUsComponent },
   { path: "admin", canActivate: [AdminGuard], component: AdminComponent },

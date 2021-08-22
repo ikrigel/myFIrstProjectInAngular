@@ -1,0 +1,53 @@
+<div>
+
+    <!-- <app-please-wait *ngIf="!employees"></app-please-wait> -->
+    <div style="text-align: left; width: 100%">
+        <a routerLink="/category/new">Add new category</a>
+    </div> 
+
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Description Name</th>
+            <th>Image</th>
+        </tr>
+        <tr *ngFor="let c of categorie">
+            <td>{{c.name}}</td>
+            <td>{{c.description}}</td>
+            <td><div>
+                <a [routerLink]="'/categorie/' + c.id">
+                    <img [src]="image_api + c.imageName"/>
+                </a>
+            </div>
+            </td>
+        </tr>
+    </table>
+
+</div>
+
+
+
+<div>
+    <div style="text-align: left; width: 100%">
+        <a routerLink="/category/new">Add new category</a>
+    </div>    
+    
+    <div *ngFor="let c of categorie" style="display:inline-flex;">
+        <div class="box">
+            <div>{{ c.name }}</div>
+            <div>Name: <b>{{ c.name }}</b></div>
+            <div>Description: <b>{{ c.description }}</b></div>
+    
+            <div>
+                <a [routerLink]="'/categorie/' + c.id">
+                    <img [src]="image_api + c.imageName"/>
+                </a>
+            </div>
+            <!-- <button [routerLink]="'/products/' + p.id" (click)="deleteProduct(p.id)">Delete this product</button> -->
+            <!-- <div><img src="{{ image_api + p.imageName }}"/></div> -->
+    
+        </div>
+    </div>
+    
+    </div>
+    

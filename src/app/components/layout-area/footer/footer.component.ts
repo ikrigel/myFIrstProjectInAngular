@@ -9,6 +9,9 @@ import { ColorService } from 'src/app/services/color.service';
 
 export class FooterComponent implements OnInit {
 public randomColor:string='';
+  colht: any;
+  colo: any;
+  colht2: string;
   constructor(public colorService:ColorService) { }
   year: number = new Date().getFullYear();
   month: any = new Date().getMonth();
@@ -68,7 +71,15 @@ public randomColor:string='';
        return m + '-' + y;
     }
     
-    
+    colorito(args: MouseEvent){
+      this.colht = this.colorService.getRandomColor();
+  
+}
+
+colorito2(args: MouseEvent){
+  this.colht2 = this.colorService.getRandomColor();
+
+}
 
   }
 

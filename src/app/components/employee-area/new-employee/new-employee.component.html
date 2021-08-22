@@ -32,6 +32,7 @@
         <span *ngIf="birthDate_field.errors?.pattern && birthDate_field.touched">Birth date format must be DD/MM/YYYY</span>
         <br/>
         
+        
         <br/>
         <label>Image:</label>
         <input type="file" accept="image/*" (change)="saveImage($event)" (blur)="loseFocus()" required/>

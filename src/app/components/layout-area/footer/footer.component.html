@@ -2,5 +2,7 @@
 <p [style.color]="randomColor">footer works!!!</p>
 
 <div dir="rtl">
-    <p dir="rtl">&copy; כל הזכויות שמורות - מוישה אופניק אתרים {{date | date:'dd-MM-yyyy'}} - {{this.month}} {{date|date:'yyyy'}}</p>
+    <p (click)="colorito2($event)" [style.color]="colht2" dir="rtl">&copy; כל הזכויות שמורות - מוישה אופניק אתרים {{date | date:'dd-MM-yyyy'}} - {{this.month}} {{date|date:'yyyy'}}</p>
+    <p (click)="colorito($event)" [style.color]="colht">כל הזכויות שמורות -אליאנה &copy; |August 2021</p>
 </div>
+

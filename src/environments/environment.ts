@@ -11,7 +11,9 @@ export const environment = {
   employeesUrl: "http://localhost:3030/api/employees/",
   employeeImagesUrl: "http://localhost:3030/api/employees/images/",
   registerUrl: "http://localhost:3030/api/auth/register",
-  loginUrl: "http://localhost:3030/api/auth/login"
+  loginUrl: "http://localhost:3030/api/auth/login",
+  categoriesUrl:"http://localhost:3030/api/categories/",
+  categoriesImageesUrl:"http://localhost:3030/api/categories/images/"
 };
 
 /*
